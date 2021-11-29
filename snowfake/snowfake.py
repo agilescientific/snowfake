@@ -146,6 +146,20 @@ class Snowfake:
         string += f"κ={self.κ}, μ={self.μ}, γ={self.γ}, σ={self.σ})"
         return string
 
+    @property
+    def params(self):
+        return dict(size=self._size,
+                    random=self._random,
+                    ρ=self.ρ,
+                    β={self.β},
+                    α={self.α},
+                    θ={self.θ},
+                    κ={self.κ},
+                    μ={self.μ},
+                    γ={self.γ},
+                    σ={self.σ},
+                   )
+
     def status(self):
         string  = f"Snowfake(size={self._size}, random={self._random}, "
         string += f"epochs={self._epochs}, attachments={int(self.a.sum())})"
@@ -361,8 +375,26 @@ def centre(size, fill=0, centre=1):
     return arr
 
 
+def random(seed=None):
+    rng = np.random.default_rng(seed)
+
+    params =  {
+        'ρ': round(np.clip(rng.normal(0.6, 0.1), 0.35, 0.8), 2),
+        'β': round((rng.lognormal(0, 0.5) + 2) / 2, 2),
+        'α': round(np.clip(rng.normal(0.25, 0.075), 0.005, 0.5), 2),
+        'θ': round(np.clip(rng.normal(0.025, 0.0075), 0.001, 0.1), 3),
+        'κ': round(np.clip(rng.normal(0.0025, 0.00075), 0.0001, 0.1), 4),
+        'μ': round(np.clip(rng.normal(0.015, 0.0075), 0.01, 0.15), 3),
+        'γ': rng.choice([1e-5, 5e-5, 1e-4, 5e-4, 1e-3, 5e-3]),
+        'σ': rng.choice([1e-6, 5e-6, 1e-5, 5e-5, 1e-4, 5e-4]) * rng.choice([-1, 1]),
+        'random': rng.integers(1e18) * rng.choice([0, 1]),
+    }
+
+    return Snowfake(size=801, **params)
+
+
 def main():
-    pass
+    raise(NotImplementedError("You can't do that yet."))
 
 
 if __name__ == "__main__":

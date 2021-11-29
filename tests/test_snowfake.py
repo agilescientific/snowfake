@@ -1,6 +1,7 @@
 """Test snowfake"""
 import pytest
 from snowfake import Snowfake
+import snowfake
 
 # Figure 15b.
 params =  {
@@ -52,3 +53,9 @@ def test_rectify_skimage():
     s.grow(max_epochs=3)
     # This is a bug really, but it's what it does right now...
     assert s.rectify_skimage('c').shape == (12, 12)
+
+def test_random():
+    s = snowfake.random()
+    s.grow(max_epochs=3)
+    s = snowfake.random(seed=42)
+    s.grow(max_epochs=3)
