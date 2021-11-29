@@ -17,7 +17,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='snowfake',
-    version='0.2.1',
+    version='0.2.2',
     url='https://github.com/agile-geoscience/snowfake',
     author='Matt Hall',
     author_email='matt@agilescientific.com',

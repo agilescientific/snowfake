@@ -27,16 +27,15 @@ else:
     _has_skimage = True
 
 
-greek = {v: k for k, v in {
-        'ρ': 'rho',
-        'β': 'beta',
-        'α': 'alpha',
-        'θ': 'theta',
-        'κ': 'kappa',
-        'μ': 'mu',
-        'γ': 'gamma',
-        'σ': 'sigma',
-    }.items()}
+greek = {'rho': 'ρ',
+         'beta': 'β',
+         'alpha': 'α',
+         'theta': 'θ',
+         'kappa': 'κ',
+         'mu': 'μ',
+         'gamma': 'γ',
+         'sigma': 'σ'
+        }
 
 
 class Snowfake:
@@ -146,25 +145,25 @@ class Snowfake:
         string += f"κ={self.κ}, μ={self.μ}, γ={self.γ}, σ={self.σ})"
         return string
 
-    @property
-    def params(self):
-        return dict(size=self._size,
-                    random=self._random,
-                    ρ=self.ρ,
-                    β={self.β},
-                    α={self.α},
-                    θ={self.θ},
-                    κ={self.κ},
-                    μ={self.μ},
-                    γ={self.γ},
-                    σ={self.σ},
-                   )
-
     def status(self):
         string  = f"Snowfake(size={self._size}, random={self._random}, "
         string += f"epochs={self._epochs}, attachments={int(self.a.sum())})"
         return string
     
+    @property
+    def params(self):
+        return dict(size=self._size,
+                    random=self._random,
+                    ρ=self.ρ,
+                    β=self.β,
+                    α=self.α,
+                    θ=self.θ,
+                    κ=self.κ,
+                    μ=self.μ,
+                    γ=self.γ,
+                    σ=self.σ,
+                   )
+
     @property
     def neighbours(self):
         if self._boundary_changed:
@@ -332,10 +331,13 @@ class Snowfake:
         will be produced every N epochs, where N = snapshot. This is on by default
         and produces a plot every 1000 epochs.
         """
+        # Deal with defaults.
         if early_stopping is True:
             early_stopping = 0.5
         if snapshot is True:
             snapshot = 1000
+
+        # Expand sigma to an array.
         if isinstance(self.σ, float):
             self.σ = self.σ * np.ones(max_epochs)
 
@@ -357,7 +359,9 @@ class Snowfake:
                     break
             if (epoch > 0) and snapshot and (epoch % snapshot == 0):
                 self.snapshot()
+
             self._epochs += 1
+    
         return
 
 
@@ -375,7 +379,8 @@ def centre(size, fill=0, centre=1):
     return arr
 
 
-def random(seed=None):
+def random(size=801, seed=None):
+    """Returns a random snowfake."""
     rng = np.random.default_rng(seed)
 
     params =  {
@@ -390,7 +395,7 @@ def random(seed=None):
         'random': rng.integers(1e18) * rng.choice([0, 1]),
     }
 
-    return Snowfake(size=801, **params)
+    return Snowfake(size=size, **params)
 
 
 def main():
