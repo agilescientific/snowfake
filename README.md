@@ -24,7 +24,7 @@ Installing `scikit-image` allows you to use a different affine transformation, b
 
 ## Example
 
-You can produce a randome snowfake with:
+You can produce a random snowfake with:
 
     import snowfake
     s = snowfake.random()
