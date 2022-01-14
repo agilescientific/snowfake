@@ -78,6 +78,13 @@ Then to build `snowfake` locally:
 The builds both `.tar.gz` and `.whl` files, either of which you can install with `pip`.
 
 
+## Continuous integration
+
+This repo has two GitHub 'workflows' or 'actions':
+
+- Push to `main`: Run all tests on all version of Python. This is the **Run tests** workflow.
+- Publish a new release: Build and upload to PyPI. This is the **Publish to PyPI** workflow. Publish using the GitHub interface, for example ([read more](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
+
 ---
 
 &copy; 2021 Agile Scientific, openly licenced under Apache 2.0
