@@ -57,9 +57,24 @@ The parameter `σ` (note that you can also spell out `sigma` if you prefer) can 
 
 ## Testing
 
-You can run the tests (requires `pytest` and `pytest-cov`) with 
+You can run the tests (requires `pytest` and `pytest-cov`) with
 
     python run_tests.py
+
+
+## Building
+
+This repo uses PEP 517-style packaging. [Read more about this](https://setuptools.pypa.io/en/latest/build_meta.html) and [about Python packaging in general](https://packaging.python.org/en/latest/tutorials/packaging-projects/).
+
+Building the project requires `build`, so first:
+
+    pip install build
+
+Then to build `snowfake` locally:
+
+    python -m build
+
+The builds both `.tar.gz` and `.whl` files, either of which you can install with `pip`.
 
 
 ---
