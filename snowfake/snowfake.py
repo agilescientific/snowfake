@@ -13,10 +13,9 @@ Email: matt@agilescientific.com
 Licence: Apache 2.0
 """
 import numpy as np
-import scipy.signal as ss
+from scipy.signal import convolve2d  # Could replace w numpy?
+from scipy.ndimage import affine_transform  # Could replace??
 from tqdm import tqdm
-from scipy.signal import convolve2d
-from scipy.ndimage import affine_transform
 import matplotlib.pyplot as plt
 from functools import partial
 try:
@@ -35,7 +34,7 @@ greek = {'rho': 'ρ',
          'mu': 'μ',
          'gamma': 'γ',
          'sigma': 'σ'
-        }
+         }
 
 
 class Snowfake:
@@ -162,12 +161,12 @@ class Snowfake:
                     μ=self.μ,
                     γ=self.γ,
                     σ=self.σ,
-                   )
+                    )
 
     @property
     def neighbours(self):
         if self._boundary_changed:
-            n = ss.convolve2d(self.a, self.BDY, mode='same')
+            n = convolve2d(self.a, self.BDY, mode='same')
             self._neighbours = n
         return np.clip(self._neighbours, 0, 6)
 
@@ -185,7 +184,7 @@ class Snowfake:
         and for x ∈ ∂A_t (boundary) any term in the sum corresponding to y ∈ A_t is
         replaced by d°(x) [i.e. the value before step]."
         """
-        d_ = ss.convolve2d(self.d, self.NBR / 7, boundary='symm', mode='same')  # Eq 1.
+        d_ = convolve2d(self.d, self.NBR / 7, boundary='symm', mode='same')  # Eq 1.
         d_ *= 1 - self.a  # To eliminate crystal.
         self.d = d_ + self.neighbours * self.d / 7
         return
