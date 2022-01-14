@@ -1,6 +1,6 @@
 # snowfake
 
-[![tests](https://github.com/agile-geoscience/snowfake/actions/workflows/python-package.yml/badge.svg)](https://github.com/agile-geoscience/snowfake/actions/workflows/python-package.yml)
+[![Python package](https://github.com/agile-geoscience/snowfake/actions/workflows/python-package.yml/badge.svg)](https://github.com/agile-geoscience/snowfake/actions/workflows/python-package.yml)
 [![PyPI status](https://img.shields.io/pypi/status/snowfake.svg)](https://pypi.org/project/snowfake//)
 [![PyPI versions](https://img.shields.io/pypi/pyversions/snowfake.svg)](https://pypi.org/project/snowfake//)
 [![PyPI license](https://img.shields.io/pypi/l/snowfake.svg)](https://pypi.org/project/snowfake/)
