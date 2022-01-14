@@ -9,6 +9,7 @@ Make Gravner-Griffeath "snowfakes"! This code implements:
 
 > Janko Gravner, David Griffeath (2008). Modeling snow crystal growth II: A mesoscopic lattice map with plausible dynamics. _Physica D: Nonlinear Phenomena_ **237** (3), p 385-404. [DOI: 10.1016/j.physd.2007.09.008](https://doi.org/10.1016/j.physd.2007.09.008).
 
+![Snowfakes](https://www.dropbox.com/s/8mquyaiumdiuwwf/snowfakes.png?raw=1)
 
 ## Installation
 
