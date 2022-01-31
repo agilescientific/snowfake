@@ -1,0 +1,5 @@
+    numpy 
+    scipy
+    tqdm
+    matplotlib
+    myst-parser
