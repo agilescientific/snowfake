@@ -1,0 +1,32 @@
+name: sphinx-docs
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  test-builds:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        include:
+          - os: ubuntu-latest
+            command: conda env create --name snowfake python=3.9
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout repo content
+        uses: actions/checkout@v2
+      - name: Set up python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install kosu
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install sphinx myst-parser matplotlib tqdm scipy numpy
+          python -m pip install snowfake
+          
+      - name: Test conda environment
+        run: |
+          ${{ matrix.command }}
