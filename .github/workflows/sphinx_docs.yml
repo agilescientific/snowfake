@@ -4,13 +4,16 @@ on: [push]
 
 jobs:
   build-docs:
+    
+    runs-on: ${{ matrix.os }}
+    
     strategy:
       matrix:
         os: [ubuntu-latest]
         include:
           - os: ubuntu-latest
             command: conda env create --name snowfake python=3.9
-    runs-on: ${{ matrix.os }}
+    
     steps:
       - name: Checkout repo content
         uses: actions/checkout@v2
@@ -26,4 +29,5 @@ jobs:
       
       - name: Build html docs
         run: |
+          cd docs
           make html
