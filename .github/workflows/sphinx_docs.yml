@@ -1,13 +1,10 @@
 name: sphinx-docs
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+
+on: [push]
+
 jobs:
-  test-builds:
+  build-docs:
     strategy:
-      fail-fast: false
       matrix:
         os: [ubuntu-latest]
         include:
@@ -21,12 +18,12 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
-      - name: Install kosu
+      - name: Install snowfake dependencies
         run: |
           python -m pip install --upgrade pip
           python -m pip install sphinx myst-parser matplotlib tqdm scipy numpy
           python -m pip install snowfake
-          
-      - name: Test conda environment
+      
+      - name: Build html docs
         run: |
-          ${{ matrix.command }}
+          make html
