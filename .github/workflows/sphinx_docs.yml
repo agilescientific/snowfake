@@ -1,4 +1,4 @@
-name: sphinx-docs
+name: Build docs
 
 on:
   push:
@@ -17,34 +17,13 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install --use-feature=in-tree-build .[docs]  # Install with docs option
-    # Standard drop-in approach that should work for most people.
+        pip install --use-feature=in-tree-build .[docs]
     - name: Update Sphinx docs
       run: |
         cd docs
         make html
+        touch _build/html/.nojekyll
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4.2.3
       with:
         branch: gh-pages
-        folder: docs/_build/html
-      
-
-    #- name: Commit documentation changes
-    #  run: |
-    #    git clone https://github.com/EvanBianco/snowfake.git --branch gh-pages --single-branch gh-pages
-    #    cp -r docs/docs/html/* gh-pages/
-    #    cd gh-pages
-    #    touch .nojekyll
-    #    git config --local user.email "action@github.com"
-    #    git config --local user.name "GitHub Action"
-    #    git add .
-    #    git commit -m "Update documentation via action" -a || true
-    #    # The above command will fail if no changes were present, so we ignore
-    #    # that.
-    #- name: Push changes
-    #  uses: ad-m/github-push-action@master
-    #  with:
-    #    branch: gh-pages
-    #    directory: gh-pages
-    #    github_token: ${{ secrets.GITHUB_TOKEN }}
