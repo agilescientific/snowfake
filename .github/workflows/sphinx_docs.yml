@@ -16,7 +16,7 @@ jobs:
       uses: actions/checkout@v1
     - name: Install dependencies
       run: |
-        python -m pip install upgrade pip
+        python -m pip install --upgrade pip
         pip install --use-feature=in-tree-build .[docs]  # Install with docs option
     # Standard drop-in approach that should work for most people.
     - name: Update Sphinx docs
