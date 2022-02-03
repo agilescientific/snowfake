@@ -13,15 +13,15 @@ jobs:
 
     steps:
     - name: Checkout repo content
-    - uses: actions/checkout@v1
+      uses: actions/checkout@v1
     # Standard drop-in approach that should work for most people.
     - name: Update Sphinx docs
-    - uses: ammaraskar/sphinx-action@master
+      uses: ammaraskar/sphinx-action@master
       with:
         docs-folder: "docs/"
     # Create an artifact of the html output.
     - name: create output of artifact
-    - uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v1
       with:
         name: DocumentationHTML
         path: docs/html/
