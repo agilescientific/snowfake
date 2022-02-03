@@ -20,8 +20,8 @@ jobs:
       with:
         docs-folder: "docs/"
     # Create an artifact of the html output.
-    - name: create output of artifact
-    - uses: actions/upload-artifact@v1
-      with:
-        name: DocumentationHTML
-        path: docs/html/
+    #- name: create output of artifact
+    #- uses: actions/upload-artifact@v1
+    #  with:
+    #    name: DocumentationHTML
+    #    path: docs/html/
