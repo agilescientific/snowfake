@@ -35,8 +35,8 @@ jobs:
     - name: Commit documentation changes
       run: |
         git clone https://github.com/EvanBianco/snowfake.git --branch gh-pages --single-branch gh-pages
-        cp -r docs/docs/html/* gh-pages/
-        cd gh-pages
+        cp -r docs/docs/html/* gh-pages/docs
+        cd gh-pages/docs
         touch .nojekyll
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
