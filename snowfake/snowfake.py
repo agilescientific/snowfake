@@ -41,6 +41,7 @@ class Snowfake:
     """
     A DRASTIC CHANGE TO THE CODE THAT SHOULD BE NOTICEABLE
     Another change.
+    Trying another trigger.
     Simulates a snowfake (fake snowflake), with a slow implementation
     of Gravner & Griffeath's algorithm. This class holds all of the state,
     so you can grow it in stages, eg changing some of the parameters
