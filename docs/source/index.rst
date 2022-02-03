@@ -8,7 +8,7 @@ Welcome to snowfake
 
 .. toctree::
    :maxdepth: 2
-   :caption: Booga Booga:
+   :caption: Getting Started:
    
    readme
 
