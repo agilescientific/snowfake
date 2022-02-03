@@ -35,6 +35,7 @@ jobs:
     - name: Commit documentation changes
       run: |
         git clone https://github.com/EvanBianco/snowfake.git --branch gh-pages --single-branch gh-pages
+        mkdir gh-pages/docs
         cp -r docs/docs/html/* gh-pages/docs
         cd gh-pages/docs
         touch .nojekyll
