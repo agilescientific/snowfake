@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.abspath('../..'))  # make docs only this
 
 # -- Project information -----------------------------------------------------
 
-project = 'snowfake'
+project = 'alabaster'
 copyright = '2022, Agile Scientific'
 author = 'Agile Scientific'
 
