@@ -10,39 +10,15 @@ jobs:
   build-docs:
     
     runs-on: ubuntu-latest
-    
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ["3.9", "3.10"]
-    
+
     steps:
-      - name: Checkout repo content
-        uses: actions/checkout@v2
-      - name: Set up python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install sphinx myst-parser matplotlib tqdm scipy numpy
-          python -m pip install sphinx-rtd-theme
-          python -m pip install snowfake
-      #- name: Build html docs
-      #  run: |
-      #    cd docs
-      #    make clear
-      #    make html
-          
-      - name: Sphinx Build
-        # You may pin to the exact commit or the version.
-        # uses: ammaraskar/sphinx-action@8b4f60114d7fd1faeba1a712269168508d4750d2
-        uses: ammaraskar/sphinx-action@0.4
-        with:
-          # The folder containing your sphinx docs.
-          docs-folder: docs/
-          # The command used to build your documentation.
-          build-command: make html
-          # Run before the build command, you can use this to install system level dependencies, for example with "apt-get update -y && apt-get install -y perl"
-          #pre-build-command: # optional
+    - uses: actions/checkout@v1
+    # Standard drop-in approach that should work for most people.
+    - uses: ammaraskar/sphinx-action@master
+      with:
+        docs-folder: "docs/"
+    # Create an artifact of the html output.
+    - uses: actions/upload-artifact@v1
+      with:
+        name: DocumentationHTML
+        path: docs/docs/html/
