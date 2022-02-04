@@ -182,7 +182,7 @@ class Snowfake:
         "Diffusive mass evolves on :math:`\mathbf{A^c_t}` (non-crystal) by discrete diffusion with
         uniform weight 1/7 on the center site and each of its neighbors [...]
         and for :math:`\mathbf{x ∈ ∂A_t}` (boundary) any term in the sum corresponding to 
-        :math:`\mathbf{y ∈ ∂A_t}` is replaced by :math:`\mathbf{d°(x)}` [i.e. the value before step]."
+        :math:`\mathbf{y ∈ ∂A_t}` is replaced by :math:`\mathbf{d°(x)}` (i.e. the value before step)."
         """
         d_ = convolve2d(self.d, self.NBR / 7, boundary='symm', mode='same')  # Eq 1.
         d_ *= 1 - self.a  # To eliminate crystal.
@@ -192,7 +192,7 @@ class Snowfake:
     def freezing(self):
         """
         "Proportion κ of the diffusive mass at each boundary site crystallizes.
-        The remainder (proportion 1 − κ) becomes boundary mass."
+        The remainder (proportion :math:`\mathbf{1 - κ}`) becomes boundary mass."
         We control the 'boundaryness' with the boundary array.
         """
         self.b += self.boundary * (1 - self.κ) * self.d  # Eq 2a.
