@@ -45,21 +45,21 @@ class Snowfake:
     at various times.
 
     Example to reproduce Figure 15b in Gravner & Griffeath (2008):
-    >>> from snowfake import Snowfake
-    >>> params =   {
-        'ρ': 0.35,
-        'β': 1.4,
-        'α': 0.001,
-        'θ': 0.015,
-        'κ': 0.05,
-        'μ': 0.015,
-        'γ': 0.01,
-        'σ': 0.00005,
-        'random': False,
-    }
-    >>> s = Snowfake(801, **params)
-    >>> s.grow()
-    >>> s.plot()
+        >>> from snowfake import Snowfake
+        >>> params =   {
+            'ρ': 0.35,
+            'β': 1.4,
+            'α': 0.001,
+            'θ': 0.015,
+            'κ': 0.05,
+            'μ': 0.015,
+            'γ': 0.01,
+            'σ': 0.00005,
+            'random': False,
+        }
+        >>> s = Snowfake(801, **params)
+        >>> s.grow()
+        >>> s.plot()
     """
 
     NBR = np.array([[0, 1, 1],
