@@ -179,10 +179,10 @@ class Snowfake:
 
     def diffusion(self):
         """
-        "Diffusive mass evolves on A^c_t (non-crystal) by discrete diffusion with
+        "Diffusive mass evolves on :math:`\mathbf{A^c_t}` (non-crystal) by discrete diffusion with
         uniform weight 1/7 on the center site and each of its neighbors [...]
-        and for x ∈ ∂A_t (boundary) any term in the sum corresponding to y ∈ A_t is
-        replaced by d°(x) [i.e. the value before step]."
+        and for :math:`\mathbf{x ∈ ∂A_t}` (boundary) any term in the sum corresponding to 
+        :math:`\mathbf{y ∈ ∂A_t}` is replaced by :math:`\mathbf{d°(x)}` [i.e. the value before step]."
         """
         d_ = convolve2d(self.d, self.NBR / 7, boundary='symm', mode='same')  # Eq 1.
         d_ *= 1 - self.a  # To eliminate crystal.
