@@ -198,6 +198,15 @@ class Snowfake:
         self.b += self.boundary * (1 - self.κ) * self.d  # Eq 2a.
         self.c += self.boundary * self.κ * self.d        # Eq 2b.
         self.d -= self.boundary * self.d                 # Eq 2c.
+        
+        .. math::
+           :nowrap:
+
+           \begin{eqnarray}
+              y    & = & ax^2 + bx + c \\
+              f(x) & = & x^2 + 2xy + y^2
+           \end{eqnarray}
+        
         return
     
     def attachment(self):
