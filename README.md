@@ -4,7 +4,7 @@
 [![PyPI status](https://img.shields.io/pypi/status/snowfake.svg)](https://pypi.org/project/snowfake//)
 [![PyPI versions](https://img.shields.io/pypi/pyversions/snowfake.svg)](https://pypi.org/project/snowfake//)
 [![PyPI license](https://img.shields.io/pypi/l/snowfake.svg)](https://pypi.org/project/snowfake/)
-[![Documentation Status](https://readthedocs.org/projects/snowfake/badge/?version=latest)](https://snowfake.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/snowfake/badge/?version=latest)](http://code.agilegeoscience.com/snowfake/readme.html)
 
 Make Gravner-Griffeath "snowfakes"! This code implements:
 
