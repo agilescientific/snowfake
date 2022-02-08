@@ -9,6 +9,14 @@ The `snowfake` class
    :undoc-members:
    :show-inheritance:
 
+The `rainfake` class
+********************
+
+.. automodule:: snowfake.rainfake
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 
