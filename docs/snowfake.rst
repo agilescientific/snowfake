@@ -8,6 +8,7 @@ The `snowfake` class
    :members:
    :undoc-members:
    :show-inheritance:
+   
 
 Module contents
 ---------------
