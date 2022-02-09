@@ -57,6 +57,32 @@ source_suffix = {
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
+# Add sidebar.
+html_sidebars = {
+   '**': ['about.html',
+          'searchbox.html',
+          'navigation.html',
+          ],
+}
+
+html_theme_options = {
+    'canonical_url': 'https://code.agilescientific.com/',
+    'description': 'Gravner&ndash;Griffeath snowflake simulation. Cool!',
+    'logo': 'snowfake_logo.png',
+    'logo_name': False,
+    'show_powered_by': False,
+    'fixed_sidebar': True,
+    'github_user': 'agile-geoscience',
+    'github_repo': 'snowfake',
+    'github_banner': True,
+    'github_button': True,
+    'github_type': 'star',
+    'extra_nav_links': {
+        'snowfake@GitHub': 'https://github.com/agile-geoscience/snowfake',
+        'Agile website': 'https://agilescientific.com/',
+    }
+}
+
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
@@ -76,7 +102,7 @@ apidoc_separate_modules = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx_rtd_theme'
+# html_theme = 'sphinx_rtd_theme'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

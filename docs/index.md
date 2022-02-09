@@ -1,6 +1,8 @@
-# Snowfake: Gravner-Griffeath snowflake simulation
+# Snowfake: Gravner&ndash;Griffeath snowflake simulation
 
 `snowfake` is a simple physics-based snowflake simulation.
+
+![Snowfakes](_static/snowfakes.png)
 
 ```{toctree}
 ---
@@ -10,7 +12,6 @@ caption: Readme
 
 readme
 ```
-----
 
 ```{toctree}
 ---
@@ -24,6 +25,6 @@ snowfake
 
 ## Indices and tables
 
-* {ref}}`genindex`
-* {ref}}`modindex`
-* {ref}}`search`
+* {ref}`genindex`
+* {ref}`modindex`
+* {ref}`search`
