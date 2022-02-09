@@ -44,21 +44,21 @@ class Snowfake:
     at various times.
 
     Example to reproduce Figure 15b in Gravner & Griffeath (2008):
-    >>> from snowfake import Snowfake
-    >>> params =   {
-        'ρ': 0.35,
-        'β': 1.4,
-        'α': 0.001,
-        'θ': 0.015,
-        'κ': 0.05,
-        'μ': 0.015,
-        'γ': 0.01,
-        'σ': 0.00005,
-        'random': False,
-    }
-    >>> s = Snowfake(801, **params)
-    >>> s.grow()
-    >>> s.plot()
+        >>> from snowfake import Snowfake
+        >>> params =   {
+            'ρ': 0.35,
+            'β': 1.4,
+            'α': 0.001,
+            'θ': 0.015,
+            'κ': 0.05,
+            'μ': 0.015,
+            'γ': 0.01,
+            'σ': 0.00005,
+            'random': False,
+        }
+        >>> s = Snowfake(801, **params)
+        >>> s.grow()
+        >>> s.plot()
     """
 
     NBR = np.array([[0, 1, 1],
@@ -178,10 +178,10 @@ class Snowfake:
 
     def diffusion(self):
         """
-        "Diffusive mass evolves on A^c_t (non-crystal) by discrete diffusion with
+        "Diffusive mass evolves on :math:`\mathbf{A^c_t}` (non-crystal) by discrete diffusion with
         uniform weight 1/7 on the center site and each of its neighbors [...]
-        and for x ∈ ∂A_t (boundary) any term in the sum corresponding to y ∈ A_t is
-        replaced by d°(x) [i.e. the value before step]."
+        and for :math:`\mathbf{x ∈ ∂A_t}` (boundary) any term in the sum corresponding to 
+        :math:`\mathbf{y ∈ ∂A_t}` is replaced by :math:`\mathbf{d°(x)}` (i.e. the value before step)."
         """
         d_ = convolve2d(self.d, self.NBR / 7, boundary='symm', mode='same')  # Eq 1.
         d_ *= 1 - self.a  # To eliminate crystal.
@@ -191,12 +191,13 @@ class Snowfake:
     def freezing(self):
         """
         "Proportion κ of the diffusive mass at each boundary site crystallizes.
-        The remainder (proportion 1 − κ) becomes boundary mass."
+        The remainder (proportion :math:`\mathbf{1 - κ}`) becomes boundary mass."
         We control the 'boundaryness' with the boundary array.
         """
         self.b += self.boundary * (1 - self.κ) * self.d  # Eq 2a.
         self.c += self.boundary * self.κ * self.d        # Eq 2b.
         self.d -= self.boundary * self.d                 # Eq 2c.
+        
         return
     
     def attachment(self):

@@ -12,8 +12,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../snowfake'))  # make docs only this 
-sys.path.insert(0, os.path.abspath('../..'))  # make docs only this 
+sys.path.insert(0, os.path.abspath('..')) 
 
 # -- Project information -----------------------------------------------------
 
@@ -21,8 +20,6 @@ project = 'snowfake'
 copyright = '2022, Agile Scientific'
 author = 'Agile Scientific'
 
-# The full version, including alpha/beta/rc tags
-release = '0.1'
 
 
 # -- General configuration ---------------------------------------------------
