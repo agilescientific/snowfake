@@ -1,110 +1,211 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="snowfake" href="readme.html" />
 
-<!DOCTYPE html>
-
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>snowfake package &#8212; snowfake  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="snowfake" href="readme.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-    <link rel="canonical" href="https://code.agilescientific.com/snowfake.html"/>
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  <div class="document">
+    <link rel="shortcut icon" href="_static/favicon.ico"/><meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
+        <title>snowfake package - snowfake documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=df49af52631e7917044a9c21a57f7b83170a6dd0" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=fade93df149f7c5fedb3ff897f799dc7d283b420" />
     
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<p class="logo">
-  <a href="index.html">
-    <img class="logo" src="_static/snowfake_logo.png" alt="Logo"/>
     
-  </a>
-</p>
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  body[data-theme="dark"] {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    body:not([data-theme="light"]) {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" />
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
 
 
 
-<p class="blurb">Gravner&ndash;Griffeath snowflake simulation. Cool!</p>
-
-
-
-
-<p>
-<iframe src="https://ghbtns.com/github-btn.html?user=agile-geoscience&repo=snowfake&type=star&count=true&size=large&v=2"
-  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
-</p>
-
-
-
-
-
-
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
     </div>
-</div>
-<script>$('#searchbox').show(0);</script><h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Readme</span></p>
-<ul>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">snowfake  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/snowfake_logo.png" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
 <li class="toctree-l1"><a class="reference internal" href="readme.html">snowfake</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<p class="caption" role="heading"><span class="caption-text">API reference</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">snowfake package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-snowfake.snowfake">snowfake.snowfake module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-snowfake">Module contents</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">snowfake package</a></li>
 </ul>
-</li>
-</ul>
-
-
-<hr />
+<p class="caption" role="heading"><span class="caption-text">Project links</span></p>
 <ul>
-    
-    <li class="toctree-l1"><a href="https://github.com/agile-geoscience/snowfake">snowfake@GitHub</a></li>
-    
-    <li class="toctree-l1"><a href="https://agilescientific.com/">Agile website</a></li>
-    
+<li class="toctree-l1"><a class="reference external" href="https://github.com/agile-geoscience/snowfake">GitHub repository</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://agilescientific.com">Agile's website</a></li>
 </ul>
 
-        </div>
+</div>
+</div>
       </div>
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <section id="snowfake-package">
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="snowfake-package">
 <h1>snowfake package<a class="headerlink" href="#snowfake-package" title="Permalink to this headline">¶</a></h1>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </section>
 <section id="module-snowfake.snowfake">
 <span id="snowfake-snowfake-module"></span><h2>snowfake.snowfake module<a class="headerlink" href="#module-snowfake.snowfake" title="Permalink to this headline">¶</a></h2>
+<p>Make Gravner-Griffeath snowfakes.</p>
+<p>Implementing:
+Janko Gravner, David Griffeath,
+Modeling snow crystal growth II: A mesoscopic lattice map with plausible dynamics,
+Physica D: Nonlinear Phenomena, Volume 237, Issue 3, 2008, Pages 385-404,
+<a class="reference external" href="https://doi.org/10.1016/j.physd.2007.09.008">https://doi.org/10.1016/j.physd.2007.09.008</a>.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="snowfake.snowfake.Snowfake">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">snowfake.snowfake.</span></span><span class="sig-name descname"><span class="pre">Snowfake</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowfake/snowfake.html#Snowfake"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#snowfake.snowfake.Snowfake" title="Permalink to this definition">¶</a></dt>
@@ -114,17 +215,17 @@ of Gravner &amp; Griffeath’s algorithm. This class holds all of the state,
 so you can grow it in stages, eg changing some of the parameters
 at various times.</p>
 <dl>
-<dt>Example to reproduce Figure 15b in Gravner &amp; Griffeath (2008):</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">snowfake</span> <span class="k">import</span> <span class="n">Snowfake</span>
+<dt>Example to reproduce Figure 15b in Gravner &amp; Griffeath (2008):</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">snowfake</span> <span class="kn">import</span> <span class="n">Snowfake</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">params</span> <span class="o">=</span>   <span class="p">{</span>
-<span class="go">    &#39;ρ&#39;: 0.35,</span>
-<span class="go">    &#39;β&#39;: 1.4,</span>
-<span class="go">    &#39;α&#39;: 0.001,</span>
-<span class="go">    &#39;θ&#39;: 0.015,</span>
-<span class="go">    &#39;κ&#39;: 0.05,</span>
-<span class="go">    &#39;μ&#39;: 0.015,</span>
-<span class="go">    &#39;γ&#39;: 0.01,</span>
-<span class="go">    &#39;σ&#39;: 0.00005,</span>
-<span class="go">    &#39;random&#39;: False,</span>
+<span class="go">    'ρ': 0.35,</span>
+<span class="go">    'β': 1.4,</span>
+<span class="go">    'α': 0.001,</span>
+<span class="go">    'θ': 0.015,</span>
+<span class="go">    'κ': 0.05,</span>
+<span class="go">    'μ': 0.015,</span>
+<span class="go">    'γ': 0.01,</span>
+<span class="go">    'σ': 0.00005,</span>
+<span class="go">    'random': False,</span>
 <span class="go">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">Snowfake</span><span class="p">(</span><span class="mi">801</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">grow</span><span class="p">()</span>
@@ -135,26 +236,22 @@ at various times.</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="snowfake.snowfake.Snowfake.BDY">
-<span class="sig-name descname"><span class="pre">BDY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([[</span> <span class="pre">0,</span>&#160; <span class="pre">1,</span>&#160; <span class="pre">1],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[</span> <span class="pre">1,</span> <span class="pre">-7,</span>&#160; <span class="pre">1],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[</span> <span class="pre">1,</span>&#160; <span class="pre">1,</span>&#160; <span class="pre">0]])</span></em><a class="headerlink" href="#snowfake.snowfake.Snowfake.BDY" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">BDY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([[</span> <span class="pre">0,</span>  <span class="pre">1,</span>  <span class="pre">1],</span>        <span class="pre">[</span> <span class="pre">1,</span> <span class="pre">-7,</span>  <span class="pre">1],</span>        <span class="pre">[</span> <span class="pre">1,</span>  <span class="pre">1,</span>  <span class="pre">0]])</span></em><a class="headerlink" href="#snowfake.snowfake.Snowfake.BDY" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
 <dl class="py attribute">
 <dt class="sig sig-object py" id="snowfake.snowfake.Snowfake.NBR">
-<span class="sig-name descname"><span class="pre">NBR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([[0,</span> <span class="pre">1,</span> <span class="pre">1],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">1],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">0]])</span></em><a class="headerlink" href="#snowfake.snowfake.Snowfake.NBR" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">NBR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([[0,</span> <span class="pre">1,</span> <span class="pre">1],</span>        <span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">1],</span>        <span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">0]])</span></em><a class="headerlink" href="#snowfake.snowfake.Snowfake.NBR" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="snowfake.snowfake.Snowfake.attachment">
 <span class="sig-name descname"><span class="pre">attachment</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowfake/snowfake.html#Snowfake.attachment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#snowfake.snowfake.Snowfake.attachment" title="Permalink to this definition">¶</a></dt>
 <dd><p>“This key step in the algorithm decides when a boundary site joins the snowflake.”
 What happens depends on how many neighbours a site has.</p>
 </dd></dl>
-
 <dl class="py property">
 <dt class="sig sig-object py" id="snowfake.snowfake.Snowfake.boundary">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">boundary</span></span><a class="headerlink" href="#snowfake.snowfake.Snowfake.boundary" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="snowfake.snowfake.Snowfake.diffusion">
 <span class="sig-name descname"><span class="pre">diffusion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowfake/snowfake.html#Snowfake.diffusion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#snowfake.snowfake.Snowfake.diffusion" title="Permalink to this definition">¶</a></dt>
@@ -163,7 +260,6 @@ uniform weight 1/7 on the center site and each of its neighbors […]
 and for <span class="math notranslate nohighlight">\(\mathbf{x ∈ ∂A_t}\)</span> (boundary) any term in the sum corresponding to
 <span class="math notranslate nohighlight">\(\mathbf{y ∈ ∂A_t}\)</span> is replaced by <span class="math notranslate nohighlight">\(\mathbf{d°(x)}\)</span> (i.e. the value before step).”</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="snowfake.snowfake.Snowfake.freezing">
 <span class="sig-name descname"><span class="pre">freezing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowfake/snowfake.html#Snowfake.freezing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#snowfake.snowfake.Snowfake.freezing" title="Permalink to this definition">¶</a></dt>
@@ -171,7 +267,6 @@ and for <span class="math notranslate nohighlight">\(\mathbf{x ∈ ∂A_t}\)</sp
 The remainder (proportion <span class="math notranslate nohighlight">\(\mathbf{1 - κ}\)</span>) becomes boundary mass.”
 We control the ‘boundaryness’ with the boundary array.</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="snowfake.snowfake.Snowfake.grow">
 <span class="sig-name descname"><span class="pre">grow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_stopping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snapshot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowfake/snowfake.html#Snowfake.grow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#snowfake.snowfake.Snowfake.grow" title="Permalink to this definition">¶</a></dt>
@@ -189,7 +284,6 @@ for early stopping every 100 epochs.</p>
 will be produced every N epochs, where N = snapshot. This is on by default
 and produces a plot every 1000 epochs.</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="snowfake.snowfake.Snowfake.melting">
 <span class="sig-name descname"><span class="pre">melting</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowfake/snowfake.html#Snowfake.melting"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#snowfake.snowfake.Snowfake.melting" title="Permalink to this definition">¶</a></dt>
@@ -197,17 +291,14 @@ and produces a plot every 1000 epochs.</p>
 at each boundary site become diffusive mass. […] Typically µ is small
 and γ extremely small.”</p>
 </dd></dl>
-
 <dl class="py property">
 <dt class="sig sig-object py" id="snowfake.snowfake.Snowfake.neighbours">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">neighbours</span></span><a class="headerlink" href="#snowfake.snowfake.Snowfake.neighbours" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
 <dl class="py property">
 <dt class="sig sig-object py" id="snowfake.snowfake.Snowfake.params">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><a class="headerlink" href="#snowfake.snowfake.Snowfake.params" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="snowfake.snowfake.Snowfake.perturb">
 <span class="sig-name descname"><span class="pre">perturb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowfake/snowfake.html#Snowfake.perturb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#snowfake.snowfake.Snowfake.perturb" title="Permalink to this definition">¶</a></dt>
@@ -215,7 +306,6 @@ and γ extremely small.”</p>
 proportion σ”</p>
 <p>In the paper, both random and biased perturbations are used.</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="snowfake.snowfake.Snowfake.plot">
 <span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.025</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Blues'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Blues'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowfake/snowfake.html#Snowfake.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#snowfake.snowfake.Snowfake.plot" title="Permalink to this definition">¶</a></dt>
@@ -224,32 +314,26 @@ For now we’ll do something very simple, which looks a little
 bit like what the authors do in their paper:
 Plot the sum of the d and c arrays.</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="snowfake.snowfake.Snowfake.rectify">
 <span class="sig-name descname"><span class="pre">rectify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'c'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowfake/snowfake.html#Snowfake.rectify"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#snowfake.snowfake.Snowfake.rectify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transform to Cartesian coordinates with scipy.</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="snowfake.snowfake.Snowfake.rectify_skimage">
 <span class="sig-name descname"><span class="pre">rectify_skimage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'c'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowfake/snowfake.html#Snowfake.rectify_skimage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#snowfake.snowfake.Snowfake.rectify_skimage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transform to Cartesian coordinates with skimage.</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="snowfake.snowfake.Snowfake.snapshot">
 <span class="sig-name descname"><span class="pre">snapshot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowfake/snowfake.html#Snowfake.snapshot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#snowfake.snowfake.Snowfake.snapshot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Quick look at the arrays during training.</p>
 </dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="snowfake.snowfake.Snowfake.status">
 <span class="sig-name descname"><span class="pre">status</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowfake/snowfake.html#Snowfake.status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#snowfake.snowfake.Snowfake.status" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
 </dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="snowfake.snowfake.centre">
 <span class="sig-prename descclassname"><span class="pre">snowfake.snowfake.</span></span><span class="sig-name descname"><span class="pre">centre</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centre</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowfake/snowfake.html#centre"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#snowfake.snowfake.centre" title="Permalink to this definition">¶</a></dt>
@@ -257,45 +341,85 @@ Plot the sum of the d and c arrays.</p>
 You can pass an array as fill if you prefer, eg for the initial
 rho parameter.</p>
 </dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="snowfake.snowfake.main">
 <span class="sig-prename descclassname"><span class="pre">snowfake.snowfake.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowfake/snowfake.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#snowfake.snowfake.main" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="snowfake.snowfake.random">
 <span class="sig-prename descclassname"><span class="pre">snowfake.snowfake.</span></span><span class="sig-name descname"><span class="pre">random</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">801</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowfake/snowfake.html#random"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#snowfake.snowfake.random" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a random snowfake.</p>
 </dd></dl>
-
 </section>
 <section id="module-snowfake">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-snowfake" title="Permalink to this headline">¶</a></h2>
 </section>
 </section>
 
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          <a class="prev-page" href="readme.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">snowfake</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2022, Agile Scientific |
+          Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            | <a class="muted-link" href="_sources/snowfake.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">snowfake package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-snowfake.snowfake">snowfake.snowfake module</a></li>
+<li><a class="reference internal" href="#module-snowfake">Module contents</a></li>
+</ul>
+</li>
+</ul>
 
           </div>
-          
         </div>
       </div>
-    <div class="clearer"></div>
-  </div>
-    <div class="footer">
-      &copy;2022, Agile Scientific.
       
-      |
-      <a href="_sources/snowfake.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-    <a href="https://github.com/agile-geoscience/snowfake" class="github">
-        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
-    </a>
-    
-
-    
-  </body>
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
 </html>
