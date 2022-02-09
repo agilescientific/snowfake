@@ -20,8 +20,6 @@ You can install this package with `pip` (be careful not to type "snowflake"):
 
     pip install snowfake
 
-#### Experimental
-
 Installing `scikit-image` allows you to use a different affine transformation, but I haven't figured out yet if it's better or not. 
 
     pip install snowfake[skimage]

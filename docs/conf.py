@@ -12,7 +12,9 @@ def autodoc_skip_member(app, what, name, obj, skip, options):
 
 def remove_module_docstring(app, what, name, obj, options, lines):
     if what == "module":
-        del lines[:]
+        keep = [i for i, line in enumerate(lines) if line.startswith("Author: ")]
+        if keep:
+            del lines[keep[0]:]
     return
 
 def setup(app):
@@ -39,7 +41,8 @@ author = 'Agile Scientific'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinxcontrib.apidoc',
+extensions = [
+    'sphinxcontrib.apidoc',
               'sphinx.ext.napoleon',
               'myst_parser',
               'sphinx.ext.viewcode'
@@ -58,35 +61,38 @@ source_suffix = {
 templates_path = ['_templates']
 
 # Add sidebar.
-html_sidebars = {
-   '**': ['about.html',
-          'searchbox.html',
-          'navigation.html',
-          ],
-}
+# html_sidebars = {
+#    '**': ['about.html',
+#           'searchbox.html',
+#           'navigation.html',
+#           ],
+# }
 
+# html_theme_options = {
+#     'canonical_url': 'https://code.agilescientific.com/',
+#     'description': 'Gravner&ndash;Griffeath snowflake simulation. Cool!',
+#     'logo': 'snowfake_logo.png',
+#     'logo_name': False,
+#     'show_powered_by': False,
+#     'fixed_sidebar': True,
+#     'github_user': 'agile-geoscience',
+#     'github_repo': 'snowfake',
+#     'github_banner': True,
+#     'github_button': True,
+#     'github_type': 'star',
+#     'extra_nav_links': {
+#         'snowfake@GitHub': 'https://github.com/agile-geoscience/snowfake',
+#         'Agile website': 'https://agilescientific.com/',
+#     }
+# }
 html_theme_options = {
-    'canonical_url': 'https://code.agilescientific.com/',
-    'description': 'Gravner&ndash;Griffeath snowflake simulation. Cool!',
-    'logo': 'snowfake_logo.png',
-    'logo_name': False,
-    'show_powered_by': False,
-    'fixed_sidebar': True,
-    'github_user': 'agile-geoscience',
-    'github_repo': 'snowfake',
-    'github_banner': True,
-    'github_button': True,
-    'github_type': 'star',
-    'extra_nav_links': {
-        'snowfake@GitHub': 'https://github.com/agile-geoscience/snowfake',
-        'Agile website': 'https://agilescientific.com/',
-    }
+    "sidebar_hide_name": True,
 }
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = []
+exclude_patterns = ['_build']
 
 # Apidoc automation
 # https://pypi.org/project/sphinxcontrib-apidoc/
@@ -102,7 +108,8 @@ apidoc_separate_modules = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = 'furo'
+html_logo = '_static/snowfake_logo.png'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

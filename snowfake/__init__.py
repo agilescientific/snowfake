@@ -1,6 +1,3 @@
-from .snowfake import Snowfake
-from .snowfake import random
-
 from pkg_resources import get_distribution, DistributionNotFound
 try:
     VERSION = get_distribution(__name__).version

@@ -1,22 +1,26 @@
-# Snowfake: Gravner&ndash;Griffeath snowflake simulation
+# Snowfake: Gravner&ndash;Griffeath snowflakes
 
 `snowfake` is a simple physics-based snowflake simulation.
 
 ![Snowfakes](_static/snowfakes.png)
 
+
+## User guide
+
 ```{toctree}
 ---
 maxdepth: 2
-caption: Readme
 ---
 
 readme
 ```
 
+## API reference
+
 ```{toctree}
 ---
 maxdepth: 2
-caption: API Reference
+caption: API reference
 ---
 
 snowfake
@@ -28,3 +32,13 @@ snowfake
 * {ref}`genindex`
 * {ref}`modindex`
 * {ref}`search`
+
+```{toctree}
+---
+caption: Project links
+hidden: 
+---
+
+GitHub repository <https://github.com/agile-geoscience/snowfake>
+Agile's website <https://agilescientific.com>
+```
