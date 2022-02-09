@@ -1,14 +1,16 @@
 snowfake package
 ================
 
-The `snowfake` class
-********************
+Submodules
+----------
+
+snowfake.snowfake module
+------------------------
 
 .. automodule:: snowfake.snowfake
    :members:
    :undoc-members:
    :show-inheritance:
-   
 
 Module contents
 ---------------
