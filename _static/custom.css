@@ -3,6 +3,21 @@ article p.caption {
     display: none;
 }
 
+/* Styles the 'line block' https://docutils.sourceforge.io/docs/user/rst/quickref.html#line-blocks. */
+blockquote {
+    background: #ffffff;
+    border-left-width: 0px;
+    padding: 0em;
+}
+
+blockquote div.line {
+    color: #838383;
+    display: inline;
+    font-style: normal !important;
+    font-size: 150%;
+    line-height: 125%;
+}
+
 /* Adds the Agile logo in the footer. */
 .related-information:before{
     display: block;
