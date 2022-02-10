@@ -16,6 +16,8 @@ User guide
 
 .. toctree::
     :maxdepth: 2
+    :caption: User guide
+
 
     readme
 
@@ -25,6 +27,7 @@ API reference
 
 .. toctree::
     :maxdepth: 2
+    :caption: API reference
 
     snowfake
 

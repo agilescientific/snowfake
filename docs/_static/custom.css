@@ -1,4 +1,9 @@
+/* Removes Captions from the main page. */
+article p.caption {
+    display: none;
+}
 
+/* Adds the Agile logo in the footer. */
 .related-information:before{
     display: block;
     width:48px;
@@ -11,6 +16,7 @@
     padding-left: 0px;
 }
 
+/* Adds the GitHub ribbon. */
 #forkongithub a {
     background:rgb(158, 158, 158);
     color:#fff;
