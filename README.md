@@ -25,6 +25,11 @@ Installing `scikit-image` allows you to use a different affine transformation, b
     pip install snowfake[skimage]
 
 
+## Documentation
+
+Read [the documentation](https://code.agilescientific.com/snowfake)
+
+
 ## Example
 
 You can produce a random snowfake with:
