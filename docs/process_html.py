@@ -9,7 +9,12 @@ def simplify_credits(html):
     """
     s = r"Created using <a href=\"https://www\.sphinx.+?Furo theme</a>."
     pattern = re.compile(s, flags=re.DOTALL)
-    return pattern.sub(r"Created using Sphinx & Furo", html)
+
+    new_s = '<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>'
+    new_s += ' | Created using Sphinx & Furo'
+
+    return pattern.sub(new_s, html)
+
 
 def main(path):
     """
