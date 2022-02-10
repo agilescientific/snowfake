@@ -8,7 +8,7 @@
 Snowfake: Gravner–Griffeath snowflakes
 ============================================
 
-``snowfake`` is a simple physics-based snowflake simulation.
+    | ❄️️ ``snowfake`` is a simple physics-based snowflake simulation.
 
 
 User guide
