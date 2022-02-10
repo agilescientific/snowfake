@@ -42,7 +42,7 @@ author = 'Agile Scientific'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinxcontrib.apidoc',
+              'sphinxcontrib.apidoc',
               'sphinx.ext.napoleon',
               'myst_parser',
               'sphinx.ext.viewcode'
@@ -50,17 +50,11 @@ extensions = [
 
 myst_enable_extensions = ["dollarmath", "amsmath"]
 
-# Declare suffix for autodoc
-source_suffix = {
-                '.rst': 'restructuredtext',
-                '.txt': 'markdown',
-                '.md': 'markdown',
-            }
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
-# Add sidebar.
+# Add sidebar for Alabaster theme.
 # html_sidebars = {
 #    '**': ['about.html',
 #           'searchbox.html',
@@ -68,6 +62,7 @@ templates_path = ['_templates']
 #           ],
 # }
 
+# Options for Alabaster theme.
 # html_theme_options = {
 #     'canonical_url': 'https://code.agilescientific.com/',
 #     'description': 'Gravner&ndash;Griffeath snowflake simulation. Cool!',
@@ -108,7 +103,9 @@ apidoc_separate_modules = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
+# https://sphinx-themes.org/sample-sites/furo/
 html_theme = 'furo'
+
 html_logo = '_static/snowfake_logo.png'
 
 # Add any paths that contain custom static files (such as style sheets) here,
