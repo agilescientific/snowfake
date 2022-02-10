@@ -5,8 +5,9 @@
 
    `Fork on GitHub <https://github.com/agile-geoscience/snowfake>`_
 
+
 Snowfake: Gravner–Griffeath snowflakes
-============================================
+======================================
 
 ``snowfake`` is a simple physics-based snowflake simulation.
 
