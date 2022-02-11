@@ -19,7 +19,6 @@ User guide
     :maxdepth: 2
     :caption: User guide
 
-
     readme
 
 
