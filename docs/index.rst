@@ -44,5 +44,9 @@ Indices and tables
     :caption: Project links
     :hidden:
 
-    GitHub repository <https://github.com/agile-geoscience/snowfake>
-    Agile's website <https://agilescientific.com>
+    PyPI releases <https://pypi.org/project/snowfake/>
+    Code in GitHub <https://github.com/agile-geoscience/snowfake>
+    Issue tracker <https://github.com/agile-geoscience/snowfake/issues>
+    Community guidelines <https://code.agilescientific.com/community>
+    Agile's software <https://code.agilescientific.com>
+    Agile's website <https://www.agilescientific.com>

@@ -14,6 +14,7 @@ Make Gravner-Griffeath "snowfakes"! This code implements:
 
 ![Snowfakes](https://www.dropbox.com/s/8mquyaiumdiuwwf/snowfakes.png?raw=1)
 
+
 ## Installation
 
 You can install this package with `pip` (be careful not to type "snowflake"):
@@ -34,10 +35,12 @@ Read [the documentation](https://code.agilescientific.com/snowfake)
 
 You can produce a random snowfake with:
 
-    import snowfake
-    s = snowfake.random()
+```python
+import snowfake
+s = snowfake.random()
+```
 
-This code produces the crystal in Figure 5b of the Gravner & Griffeath (2008):
+Alternatively, this code produces the crystal in Figure 5b of the Gravner & Griffeath (2008):
 
 ```python
 from snowfake import Snowfake
@@ -54,6 +57,11 @@ params =  {
     'random': False,
 }
 s = Snowfake(size=801, **params)
+```
+
+Now you're ready to grow and plot the snowfake:
+
+```python
 s.grow()
 s.plot()
 ```
