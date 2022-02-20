@@ -31,14 +31,7 @@ API reference
 
     snowfake
 
-
-Indices and tables
-------------------
-
 * :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
 
 .. toctree::
     :caption: Project links
