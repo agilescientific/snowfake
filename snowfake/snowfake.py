@@ -132,13 +132,12 @@ class Snowfake:
         """
         # Replace any spelt-out Greek parameter names:
         params = {greek.get(k, k): v for k, v in kwargs.items()}
-    
-        
+
         self.__dict__.update(**params)
-        self.a = centre(size, fill=0, centre=1)
-        self.b = centre(size, fill=0, centre=0)
-        self.c = centre(size, fill=0, centre=1)
-        self.d = centre(size, fill=self.ρ, centre=0)
+        self.a = _centre(size, fill=0, centre=1)
+        self.b = _centre(size, fill=0, centre=0)
+        self.c = _centre(size, fill=0, centre=1)
+        self.d = _centre(size, fill=self.ρ, centre=0)
         if random is True:
             self._random = None  # Use no seed in the RNG if random is True.
         else:
@@ -153,18 +152,27 @@ class Snowfake:
         return
 
     def __repr__(self):
+        """
+        Return a string representation of the snowfake.
+        """
         string  = f"Snowfake(size={self._size}, random={self._random}, "
         string += f"ρ={self.ρ}, β={self.β}, α={self.α}, θ={self.θ}, "
         string += f"κ={self.κ}, μ={self.μ}, γ={self.γ}, σ={self.σ})"
         return string
 
     def status(self):
+        """
+        Return a string representation of the snowfake's current state.
+        """
         string  = f"Snowfake(size={self._size}, random={self._random}, "
         string += f"epochs={self._epochs}, attachments={int(self.a.sum())})"
         return string
     
     @property
     def params(self):
+        """
+        Return a dictionary of the snowfake's parameters.
+        """
         return dict(size=self._size,
                     random=self._random,
                     ρ=self.ρ,
@@ -179,6 +187,9 @@ class Snowfake:
 
     @property
     def neighbours(self):
+        """
+        Return the number of neighbours each cell has.
+        """
         if self._boundary_changed:
             n = convolve2d(self.a, self.BDY, mode='same')
             self._neighbours = n
@@ -186,6 +197,9 @@ class Snowfake:
 
     @property
     def boundary(self):
+        """
+        Updates the boundary sites, if they have changed.
+        """
         if self._boundary_changed:
             self._boundary = self.neighbours > 0
             self._boundary_changed = False
@@ -193,10 +207,11 @@ class Snowfake:
 
     def diffusion(self):
         """
-        "Diffusive mass evolves on :math:`\mathbf{A^c_t}` (non-crystal) by discrete diffusion with
-        uniform weight 1/7 on the center site and each of its neighbors [...]
-        and for :math:`\mathbf{x ∈ ∂A_t}` (boundary) any term in the sum corresponding to 
-        :math:`\mathbf{y ∈ ∂A_t}` is replaced by :math:`\mathbf{d°(x)}` (i.e. the value before step)."
+        "Diffusive mass evolves on :math:`\mathbf{A^c_t}` (non-crystal) by
+        discrete diffusion with uniform weight 1/7 on the center site and each
+        of its neighbors [...] and for :math:`\mathbf{x ∈ ∂A_t}` (boundary)
+        any term in the sum corresponding to :math:`\mathbf{y ∈ ∂A_t}` is
+        replaced by :math:`\mathbf{d°(x)}` (i.e. the value before step)."
         """
         d_ = convolve2d(self.d, self.NBR / 7, boundary='symm', mode='same')  # Eq 1.
         d_ *= 1 - self.a  # To eliminate crystal.
@@ -217,7 +232,9 @@ class Snowfake:
     
     def attachment(self):
         """
-        "This key step in the algorithm decides when a boundary site joins the snowflake."
+        "This key step in the algorithm decides when a boundary site joins
+        the snowflake."
+
         What happens depends on how many neighbours a site has.
         """
         # Eq 3a: 1 or 2 neighbours.
@@ -266,7 +283,13 @@ class Snowfake:
     
     def rectify_skimage(self, prop='c'):
         """
-        Transform to Cartesian coordinates with skimage.
+        Transform from hexagonal to Cartesian coordinates using skimage.
+
+        Args:
+            prop (str): The array to transform.
+
+        Returns:
+            ndarray: The transformed array.
         """
         if not _has_skimage:
             raise ImportError("scikit-image is required to use this function.")
@@ -277,7 +300,13 @@ class Snowfake:
     
     def rectify(self, prop='c'):
         """
-        Transform to Cartesian coordinates with scipy.
+        Transform from hexagonal to Cartesian coordinates with scipy.
+
+        Args:
+            prop (str): The array to transform.
+
+        Returns:
+            ndarray: The transformed array.
         """
         # Translation.
         origin = np.array([[1, 0, self._size/2],
@@ -301,23 +330,31 @@ class Snowfake:
         M = origin @ rotate @ scale @ revert
         return affine_transform(getattr(self, prop), M, mode='nearest')
     
-    def plot(self, ax=None, clip=0.025, d_cmap='Blues', c_cmap='Blues', d_alpha=0.25):
+    def plot(self, ax=None, cmap='Blues'):
         """
-        Not sure what the prettiest way to plot these things is.
-        For now we'll do something very simple, which looks a little
-        bit like what the authors do in their paper:
-        Plot the sum of the d and c arrays.
+        Not sure what the prettiest way to plot these things is. For now we'll
+        do something very simple, which looks a little bit like what the
+        authors do in their paper: Plot the sum of the d and c arrays.
+
+        Args:
+            ax (Axes): The axes to plot on. If None, a new figure is created.
+            cmap (str): The colormap to use.
+
+        Returns:
+            Axes: The axes that were plotted on.
         """
         if ax is None:
             fig, ax = plt.subplots(figsize=(6, 6))
         c = self.rectify('c')
         d = 1.5 * self.rectify('d')
-        ax.imshow(c+d, cmap="Blues")
+        ax.imshow(c+d, cmap=cmap)
         ax.axis('off')
         return ax
         
     def snapshot(self):
-        """Quick look at the arrays during training."""
+        """
+        Quick look at the arrays during training.
+        """
         props = {'a': 'attachment', 'b': 'quasi-liquid', 'c': 'ice', 'd': 'diffusion'}
         fig, axs = plt.subplots(ncols=4, figsize=(16, 4))
         for ax, prop in zip(axs, 'abcd'):
@@ -334,16 +371,29 @@ class Snowfake:
         calling this method again will continue to grow it. If early_stopping
         is False, then every epoch will run.
         
-        If early_stopping is non-zero (or not False), the snowflake will automatically
-        stop growing soon after it is the given proportion of the width of the space.
-        The default value of 0.5 has proven to be a reasonable heuristic, allowing the
-        flake to grow to a reasonable size, without boundary effects. If you pass True
-        for this parameter, the default value of 0.5 will be used. The growth loop checks
-        for early stopping every 100 epochs.
+        If early_stopping is non-zero (or not False), the snowflake will
+        automatically stop growing soon after it is the given proportion of the
+        width of the space. The default value of 0.5 has proven to be a
+        reasonable heuristic, allowing the flake to grow to a reasonable size,
+        without boundary effects. If you pass True for this parameter, the
+        default value of 0.5 will be used. The growth loop checks for early
+        stopping every 100 epochs.
         
         If snapshot is non-zero (or not False) then a plot of the current state
-        will be produced every N epochs, where N = snapshot. This is on by default
-        and produces a plot every 1000 epochs.
+        will be produced every N epochs, where N = snapshot. This is on by
+        default and produces a plot every 1000 epochs.
+
+        Args:
+            max_epochs (int): The maximum number of epochs to run.
+            early_stopping (float): If False, every epoch will run, even if the
+                flake reaches the boundary of the space. If a float between 0
+                and 1, the flake will stop growing if it is this proportion of
+                the width of the space. If True, the default of 0.5 is used.
+            snapshot (int): If False, no plots will be produced. If a positive
+                integer, a plot will be produced every N epochs. Default: 1000.
+
+        Returns:
+            None.
         """
         # Deal with defaults.
         if early_stopping is True:
@@ -379,11 +429,19 @@ class Snowfake:
         return
 
 
-def centre(size, fill=0, centre=1):
+def _centre(size, fill=0, centre=1):
     """
     Make an array full of something, with something else at the centre.
     You can pass an array as fill if you prefer, eg for the initial
     rho parameter.
+
+    Args:
+        size (int): The size of the array.
+        fill (int or array): The value to fill the array with.
+        centre (int): The value to fill the centre cell with.
+
+    Returns:
+        ndarray: The array.
     """
     arr = np.ones((size, size)) * fill
     c = int(size // 2)
@@ -393,8 +451,22 @@ def centre(size, fill=0, centre=1):
     return arr
 
 
-def random(size=801, seed=None):
-    """Returns a random snowfake."""
+def random(size=801, seed=None, **kwargs):
+    """
+    Returns an intialized snowfake with random parameters. Any parameters
+    you pass will override the random ones.
+
+    Args:
+        size (int): The size in hex pixels of the 2D space.
+        seed (int): The random seed.
+        kwargs: Any other parameters you want to pass to the snowfake.
+
+    Returns:
+        Snowfake: A snowfake with random parameters.
+    """
+    # Replace any spelt-out Greek parameter names:
+    params = {greek.get(k, k): v for k, v in kwargs.items()}
+
     rng = np.random.default_rng(seed)
 
     params =  {
@@ -409,10 +481,17 @@ def random(size=801, seed=None):
         'random': rng.integers(1e18) * rng.choice([0, 1]),
     }
 
+    params.update(kwargs)
+
     return Snowfake(size=size, **params)
 
 
 def main():
+    """
+    The function that will run if this module is called from the command line.
+    
+    Not implemented yet.
+    """
     raise(NotImplementedError("You can't do that yet."))
 
 
