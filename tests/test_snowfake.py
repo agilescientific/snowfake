@@ -49,6 +49,9 @@ def test_rectify():
     assert s.rectify('c').shape == (15, 15)
 
 def test_rectify_skimage():
+    """
+    skimage's DeprecationWarnings are ignored; see pytest.ini.
+    """
     s = Snowfake(size=15, random=False, **params)
     s.grow(max_epochs=3)
     # This is a bug really, but it's what it does right now...
@@ -56,6 +59,7 @@ def test_rectify_skimage():
 
 def test_random():
     s = snowfake.random()
-    s.grow(max_epochs=3)
-    s = snowfake.random(seed=42)
-    s.grow(max_epochs=3)
+    assert 'random' in s.params
+
+    s = snowfake.random(rho=0.35, seed=42)
+    assert s.params['ρ'] == 0.35
