@@ -3,7 +3,7 @@
 .. container:: noclass
    :name: forkongithub
 
-   `Fork on GitHub <https://github.com/agile-geoscience/snowfake>`_
+   `Fork on GitHub <https://github.com/agilescientific/snowfake>`_
 
 
 Snowfake: Gravner–Griffeath snowflakes
@@ -38,8 +38,8 @@ API reference
     :hidden:
 
     PyPI releases <https://pypi.org/project/snowfake/>
-    Code in GitHub <https://github.com/agile-geoscience/snowfake>
-    Issue tracker <https://github.com/agile-geoscience/snowfake/issues>
+    Code in GitHub <https://github.com/agilescientific/snowfake>
+    Issue tracker <https://github.com/agilescientific/snowfake/issues>
     Community guidelines <https://code.agilescientific.com/community>
     Agile's software <https://code.agilescientific.com>
     Agile's website <https://www.agilescientific.com>
